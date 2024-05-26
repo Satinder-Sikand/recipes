@@ -1,0 +1,12 @@
+#Database
+MONGODB: mongodb://localhost:27017/
+
+#Server
+ACTIVE_PROFILE: dev
+
+#Email Config
+EMAIL_HOST: smtp.gmail.com
+EMAIL_PORT: 587
+EMAIL_ID: deadlocked353@gmail.com
+EMAIL_PASSWORD: ssj5satinder
+VERIFY_EMAIL_HOST: http://localhost:8080
