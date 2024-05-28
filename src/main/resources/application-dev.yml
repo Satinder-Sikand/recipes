@@ -7,6 +7,6 @@ ACTIVE_PROFILE: dev
 #Email Config
 EMAIL_HOST: smtp.gmail.com
 EMAIL_PORT: 587
-EMAIL_ID: deadlocked353@gmail.com
-EMAIL_PASSWORD: ssj5satinder
+EMAIL_ID: deadlocked353@
+EMAIL_PASSWORD: 
 VERIFY_EMAIL_HOST: http://localhost:8080
