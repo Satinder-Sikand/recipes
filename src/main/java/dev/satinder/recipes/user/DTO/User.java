@@ -1,11 +1,13 @@
-package dev.satinder.recipes.user;
+package dev.satinder.recipes.user.DTO;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.satinder.recipes.user.roles.UserRole;
+import dev.satinder.recipes.user.token.VerificationToken;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -45,8 +47,11 @@ public class User {
 	private List<Recipe> recipes;
 	@NonNull
 	private Set<UserRole> role;
+	private boolean verified;
+	@JsonIgnore
+	private VerificationToken token;
 	
-	User(String email, String password, String firstname, String lastname, Set<UserRole> role) {
+	public User(String email, String password, String firstname, String lastname, Set<UserRole> role) {
 		this.email = email;
 		this.password = password;
 		this.firstName = firstname;
@@ -56,6 +61,7 @@ public class User {
 		this.bio = "";
 		this.imageUrl = "";
 		this.loginAttemps = 0;
+		this.verified = false;
 	}
 	
 

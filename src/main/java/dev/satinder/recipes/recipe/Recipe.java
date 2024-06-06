@@ -2,6 +2,7 @@ package dev.satinder.recipes.recipe;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -27,6 +28,7 @@ public class Recipe {
 	private String title;
 	@NonNull
 	private String description;
+	private Set<String> categories;
 	@NonNull
 	private List<Ingredient> ingredients; 
 	private String instructions;
@@ -38,6 +40,22 @@ public class Recipe {
 	@NonNull
 	private LocalDateTime createdAt;
 	private List<String> images;
+	@NonNull
+	private int servings;
+	private int cookTime;
+	private int prepTime;
+	private Set<Difficulty> difficulty;
+
+	public Recipe(String title, String description, List<Ingredient> ingredients, boolean isPublic, String createdBy, LocalDateTime createdAt, int servings){
+		this.title = title;
+		this.description = description;
+		this.ingredients = ingredients;
+		this.isPublic = isPublic;
+		this.createdBy = createdBy;
+		this.createdAt = createdAt;
+		this.servings = servings;
+	}
+
 }
 
 class NutritionalInfo {

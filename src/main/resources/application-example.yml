@@ -1,0 +1,12 @@
+#Database
+MONGODB: mongodb://localhost:27017/
+
+#Server
+ACTIVE_PROFILE: dev
+
+#Email Config
+EMAIL_HOST: smtp.gmail.com #Or whatever service you are using
+EMAIL_PORT: 587
+EMAIL_ID: example@gmail.com #Replace example with your right email
+EMAIL_PASSWORD: "kajv gsen whgm iqao" #Follow password requirements for the email as specified in the readme
+VERIFY_EMAIL_HOST: http://localhost:8080/

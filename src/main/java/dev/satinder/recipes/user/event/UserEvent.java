@@ -2,7 +2,7 @@ package dev.satinder.recipes.user.event;
 
 import java.util.Map;
 
-import dev.satinder.recipes.user.User;
+import dev.satinder.recipes.user.DTO.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

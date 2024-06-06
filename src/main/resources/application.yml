@@ -18,6 +18,8 @@ spring:
     username: ${EMAIL_ID}
     password: ${EMAIL_PASSWORD}
     default-encoding: UTF-8
+    verify:
+      host: ${VERIFY_EMAIL_HOST}
     properties:
       mail:
         mime:
@@ -29,8 +31,5 @@ spring:
           auth: true
           starttls:
             enable: true
-            required: true
-    verify:
-      host: ${VERIFY_EMAIL_HOST}
-      
+
         
