@@ -1,5 +1,9 @@
 package dev.satinder.recipes.recipe;
 
+import dev.satinder.recipes.recipe.DTO.Recipe;
+import dev.satinder.recipes.recipe.DTO.RecipeUpdateRequest;
+import dev.satinder.recipes.user.DTO.User;
+import dev.satinder.recipes.user.DTO.UserProfileUpdateRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,7 +41,12 @@ public class RecipeController {
 		List<Recipe> recipes = recipeService.getAllRecipesAdmin(payload.get("emailId"));
 		return new ResponseEntity<List<Recipe>>(recipes, recipes==null ? HttpStatus.UNAUTHORIZED : HttpStatus.CREATED);
 	}
-	
-	
+
+	@PostMapping("/update/{email}")
+	public ResponseEntity<Recipe> createUser(@PathVariable String email, @RequestBody RecipeUpdateRequest recipeUpdateRequest) {
+		System.out.println("Update Recipe");
+		Recipe recipe = recipeService.updateRecipe(email, recipeUpdateRequest);
+		return new ResponseEntity<Recipe>(recipe, recipe==null ? HttpStatus.BAD_REQUEST : HttpStatus.CREATED);
+	}
 
 }

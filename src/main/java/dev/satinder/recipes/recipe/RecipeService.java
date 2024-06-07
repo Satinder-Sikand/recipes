@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
+import dev.satinder.recipes.recipe.DTO.Recipe;
+import dev.satinder.recipes.recipe.DTO.RecipeUpdateRequest;
 import dev.satinder.recipes.user.DTO.User;
 import dev.satinder.recipes.user.UserRepository;
 import dev.satinder.recipes.user.roles.UserRole;
@@ -59,6 +61,56 @@ public class RecipeService {
 		}catch (Exception e) {
 			System.out.println("Could not add Recipe. Check thrown error.");
 			e.printStackTrace();
+		}
+		return recipe;
+	}
+
+	public Recipe updateRecipe(String email, RecipeUpdateRequest updateRequest) {
+		Recipe recipe = recipeRepository.findById(updateRequest.getRecipeId()).orElse(null);
+		if (recipe != null) {
+			if (!recipe.getCreatedBy().equals(email)) {
+				return null;
+			}
+			// Apply updates if the fields are not null
+			if (updateRequest.getTitle() != null) {
+				recipe.setTitle(updateRequest.getTitle());
+			}
+			if (updateRequest.getDescription() != null) {
+				recipe.setDescription(updateRequest.getDescription());
+			}
+			if (updateRequest.getIngredients() != null) {
+				recipe.setIngredients(updateRequest.getIngredients());
+			}
+			if (updateRequest.getInstructions() != null) {
+				recipe.setInstructions(updateRequest.getInstructions());
+			}
+			if (updateRequest.getCategories() != null) {
+				recipe.setCategories(updateRequest.getCategories());
+			}
+			if (updateRequest.getNutritionalInfo() != null) {
+				recipe.setNutritionalInfo(updateRequest.getNutritionalInfo());
+			}
+			if (updateRequest.getInstructions() != null) {
+				recipe.setInstructions(updateRequest.getInstructions());
+			}
+			recipe.setPublic(updateRequest.isCheckPublic());
+			if (updateRequest.getImages() != null) {
+				recipe.setImages(updateRequest.getImages());
+			}
+			if (updateRequest.getServings() != -1) {
+				recipe.setServings(updateRequest.getServings());
+			}
+			if (updateRequest.getCookTime() != -1) {
+				recipe.setCookTime(updateRequest.getCookTime());
+			}
+			if (updateRequest.getPrepTime() != -1) {
+				recipe.setPrepTime(updateRequest.getPrepTime());
+			}
+			if (updateRequest.getDifficulty() != null) {
+				recipe.setDifficulty(updateRequest.getDifficulty());
+			}
+
+			recipeRepository.save(recipe);
 		}
 		return recipe;
 	}

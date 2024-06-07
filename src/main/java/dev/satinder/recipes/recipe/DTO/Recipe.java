@@ -1,9 +1,11 @@
-package dev.satinder.recipes.recipe;
+package dev.satinder.recipes.recipe.DTO;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
+import dev.satinder.recipes.recipe.Difficulty;
+import dev.satinder.recipes.recipe.Ingredient;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -30,7 +32,7 @@ public class Recipe {
 	private String description;
 	private Set<String> categories;
 	@NonNull
-	private List<Ingredient> ingredients; 
+	private List<Ingredient> ingredients;
 	private String instructions;
 	private NutritionalInfo nutritionalInfo;
 	@NonNull

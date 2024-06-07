@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.mongodb.lang.NonNull;
 
-import dev.satinder.recipes.recipe.Recipe;
+import dev.satinder.recipes.recipe.DTO.Recipe;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;

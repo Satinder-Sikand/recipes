@@ -97,9 +97,26 @@ public class UserService {
 		}
 	}
 
-//	public List<User> updateUserProfile(String email, UserProfileUpdateRequest updateRequest) {
-//		User user = userRepository.findById(email).get();
-//	}
+	public User updateUserProfile(String email, UserProfileUpdateRequest updateRequest) {
+		User user = userRepository.findById(email).orElse(null);
+		if (user != null) {
+			// Apply updates if the fields are not null
+			if (updateRequest.getBio() != null) {
+				user.setBio(updateRequest.getBio());
+			}
+			if (updateRequest.getImageUrl() != null) {
+				user.setImageUrl(updateRequest.getImageUrl());
+			}
+			if (updateRequest.getFirstName() != null) {
+				user.setFirstName(updateRequest.getFirstName());
+			}
+			if (updateRequest.getLastName() != null) {
+				user.setLastName(updateRequest.getLastName());
+			}
+			userRepository.save(user);
+		}
+		return user;
+	}
 
 
 }
